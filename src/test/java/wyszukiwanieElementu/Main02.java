@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.v85.media.model.Timestamp;
 
 public class Main02 {
 
@@ -20,7 +21,9 @@ public class Main02 {
         signIn.click();
 
         WebElement email1 = driver.findElement(By.id("email_create"));
-        email1.sendKeys("99test@test.com");
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        email1.sendKeys("test" + timestamp + "@test.com");
+        Thread.sleep(3000);
         driver.findElement(By.name("SubmitCreate")).click();
         Thread.sleep(1000);
 
